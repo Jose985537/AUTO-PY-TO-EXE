@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+; ═══════════════════════════════════════════════════════════════
+; AGREGAR OPCION AL MENU CONTEXTUAL (Clic derecho)
+; ═══════════════════════════════════════════════════════════════
+; Haz doble clic para agregar "auto-py-to-exe" al menú contextual
+; de carpetas en el explorador de Windows
+; ═══════════════════════════════════════════════════════════════
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\auto-py-to-exe]
+@="auto-py-to-exe"
+"Icon"="C:\\Script_clic_derecho\\auto-py-to-exe\\favicon.ico"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\auto-py-to-exe\command]
+@="cmd.exe /c start http://localhost:8080 & start /min cmd /c python -m auto_py_to_exe"
