@@ -19,6 +19,153 @@ Tu Disco/
 
 ---
 
+## 🗂️ UBICACIONES RECOMENDADAS
+
+### OPCIÓN 1: En una carpeta dedicada (RECOMENDADO)
+
+```
+C:\Script_clic_derecho\auto-py-to-exe\
+├── 1-PRINCIPAL.bat
+├── 2-AGREGAR-AL-MENU.reg
+├── 3-ELIMINAR-DEL-MENU.reg
+└── favicon.ico (opcional, para icono)
+```
+
+**Ventaja:** Organizado y fácil de encontrar
+
+### OPCIÓN 2: En Desktop
+
+```
+C:\Users\tu_usuario\Desktop\
+├── 1-PRINCIPAL.bat
+├── 2-AGREGAR-AL-MENU.reg
+└── 3-ELIMINAR-DEL-MENU.reg
+```
+
+**Ventaja:** Acceso rápido
+
+### OPCIÓN 3: En Documentos
+
+```
+C:\Users\tu_usuario\Documents\AUTO-PY-TO-EXE\
+├── 1-PRINCIPAL.bat
+├── 2-AGREGAR-AL-MENU.reg
+└── 3-ELIMINAR-DEL-MENU.reg
+```
+
+**Ventaja:** Organización profesional
+
+---
+
+## ⚙️ CÓMO HACER AJUSTES EN LOS ARCHIVOS
+
+### 🔧 SI CAMBIAS LA UBICACIÓN DE LA CARPETA
+
+**Editar 2-AGREGAR-AL-MENU.reg:**
+
+1. Haz clic derecho en `2-AGREGAR-AL-MENU.reg`
+2. Selecciona "Abrir con → Bloc de notas"
+3. Busca esta línea:
+```
+"C:\\Script_clic_derecho\\auto-py-to-exe\\favicon.ico"
+```
+
+4. Reemplázala con tu ruta. Ejemplo:
+
+**Si lo tienes en Desktop:**
+```
+"C:\\Users\\tu_usuario\\Desktop\\favicon.ico"
+```
+
+**Si lo tienes en Documentos:**
+```
+"C:\\Users\\tu_usuario\\Documents\\AUTO-PY-TO-EXE\\favicon.ico"
+```
+
+⚠️ **IMPORTANTE:** Usa doble barra `\\` en lugar de `\`
+
+5. Guarda el archivo (Ctrl+S)
+
+---
+
+### 🎨 SI QUIERES CAMBIAR EL ICONO
+
+**En el archivo .reg:**
+
+```
+"Icon"="C:\\ruta\\a\\tu\\icono\\miicono.ico"
+```
+
+Ejemplos:
+- Tu icono en la misma carpeta: `"C:\\Users\\tu_usuario\\Desktop\\miicono.ico"`
+- Un icono de Windows: `"C:\\Windows\\System32\\shell32.dll,1"`
+
+---
+
+### 🖥️ SI QUIERES CAMBIAR EL NOMBRE DEL MENÚ
+
+**En el archivo .reg, busca:**
+```
+@="auto-py-to-exe"
+```
+
+Cámbialo a lo que quieras. Ejemplos:
+```
+@="Convertir Python a EXE"
+@="Mi Convertidor"
+@="PY → EXE"
+```
+
+---
+
+## 📝 GUÍA DE EDICIÓN DE ARCHIVOS
+
+### Para editar .bat:
+
+1. Haz clic derecho → "Editar"
+2. Cambia lo que necesites
+3. Guarda (Ctrl+S)
+
+**Cosas que puedes cambiar en 1-PRINCIPAL.bat:**
+
+- Título: `title AUTO-PY-TO-EXE - GESTOR` → Tu título
+- Colores: `color 1F` → Otros códigos (Ver tabla más abajo)
+- Mensajes: Cualquier `echo` puede editarse
+
+### Para editar .reg:
+
+1. Haz clic derecho → "Abrir con → Bloc de notas"
+2. Cambia lo que necesites
+3. Guarda (Ctrl+S)
+
+**NO mover las secciones** `[HKEY_CLASSES_ROOT...]` ni los símbolos
+
+---
+
+## 🎨 TABLA DE COLORES PARA .bat
+
+```
+0 = Negro       A = Verde claro
+1 = Azul        B = Cian
+2 = Verde       C = Rojo claro
+3 = Cian        D = Magenta claro
+4 = Rojo        E = Amarillo claro
+5 = Magenta     F = Blanco
+6 = Amarillo    
+7 = Blanco
+8 = Gris
+9 = Azul claro
+```
+
+**Formato:** `color XY` (primer dígito = fondo, segundo = texto)
+
+Ejemplos:
+- `color 1F` → Fondo azul, texto blanco (actual)
+- `color 0A` → Fondo negro, texto verde
+- `color 0F` → Fondo negro, texto blanco
+
+---
+
 ## 🚀 INICIO RÁPIDO
 
 ### PASO 1: INSTALAR
@@ -31,8 +178,6 @@ Tu Disco/
 - Auto-py-to-exe
 - PyInstaller
 - Agrega opción al menú contextual
-
----
 
 ### PASO 2: USAR
 
@@ -96,12 +241,22 @@ Una vez abierto en el navegador verás:
 
 ## ⚠️ IMPORTANTE - NOTAS SOBRE DIRECTORIOS
 
-### ❌ NO necesitas modificar paths en los archivos
+### ✅ Tres formas de usar
 
-Los archivos **NO contienen rutas** a tu disco duro. Funcionan en cualquier carpeta:
-- `C:\Users\tu_usuario\Desktop\`
-- `D:\Proyectos\`
-- `E:\Mis Archivos\`
+**FORMA 1: Sin editar nada (más fácil)**
+- Descarga los 3 archivos
+- Úsalos donde los descargues
+- Todo funciona automáticamente
+
+**FORMA 2: Editar ruta del icono (recomendado)**
+- Guarda los archivos en una carpeta dedicada
+- Edita la ruta en `2-AGREGAR-AL-MENU.reg`
+- El icono aparecerá en el menú contextual
+
+**FORMA 3: Personalización completa**
+- Edita todo: ruta, nombre del menú, colores, icono
+- Haz los cambios en los archivos
+- Guarda y úsalos
 
 ### ✅ Cómo funciona:
 
@@ -151,6 +306,15 @@ R: Sí, sin problemas. Usa opción [3] y luego [1].
 **P: ¿Necesito conexión a internet?**
 R: Sí, solo para la primera instalación. Después no.
 
+**P: ¿Cómo cambio la ubicación de los archivos?**
+R: Edita la ruta en `2-AGREGAR-AL-MENU.reg` cambiando la línea del icono.
+
+**P: ¿Puedo cambiar el nombre del menú?**
+R: Sí, en `2-AGREGAR-AL-MENU.reg` busca `@="auto-py-to-exe"` y cámbialo.
+
+**P: ¿Cómo cambio el color de la ventana?**
+R: En `1-PRINCIPAL.bat` busca `color 1F` y reemplázalo con otros códigos.
+
 ---
 
 ## 📞 RESUMEN RÁPIDO
@@ -165,4 +329,4 @@ R: Sí, solo para la primera instalación. Después no.
 
 ---
 
-*Creado para funcionar de forma simple e intuitiva*# AUTO-PY-TO-EXE
+*Creado para funcionar de forma simple e intuitiva*
