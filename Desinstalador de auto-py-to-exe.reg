@@ -2,9 +2,8 @@ Windows Registry Editor Version 5.00
 
 ; ═══════════════════════════════════════════════════════════════
 ; ELIMINAR OPCION DEL MENU CONTEXTUAL
-; ═══════════════════════════════════════════════════════════════
-; Haz doble clic para eliminar "auto-py-to-exe" del menú contextual
-; de carpetas en el explorador de Windows
+; Haz doble clic para eliminar "Auto-py-to-exe" del menú contextual
 ; ═══════════════════════════════════════════════════════════════
 
-[-HKEY_CLASSES_ROOT\Directory\Background\shell\auto-py-to-exe]
+; --- Elimina la clave principal del menú y todos sus sub-comandos ---
+[-HKEY_CLASSES_ROOT\Directory\Background\shell\AutoPyToExe]

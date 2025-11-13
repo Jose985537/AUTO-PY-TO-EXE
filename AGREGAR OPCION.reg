@@ -1,15 +1,35 @@
 Windows Registry Editor Version 5.00
 
 ; ═══════════════════════════════════════════════════════════════
-; AGREGAR OPCION AL MENU CONTEXTUAL (Clic derecho)
-; ═══════════════════════════════════════════════════════════════
-; Haz doble clic para agregar "auto-py-to-exe" al menú contextual
-; de carpetas en el explorador de Windows
+; AGREGAR OPCION AL MENU CONTEXTUAL CON SUBMENU
+; Haz doble clic para instalar "Auto-py-to-exe" con 2 opciones
 ; ═══════════════════════════════════════════════════════════════
 
-[HKEY_CLASSES_ROOT\Directory\Background\shell\auto-py-to-exe]
-@="auto-py-to-exe"
+; --- Define la clave principal del menú plegable ---
+[HKEY_CLASSES_ROOT\Directory\Background\shell\AutoPyToExe]
+"MUIVerb"="Auto-py-to-exe"
+"Icon"="C:\\Script_clic_derecho\\auto-py-to-exe\\favicon.ico"
+"SubCommands"=""
+
+; --- Define la carpeta "shell" INTERNA que contendrá los sub-elementos ---
+[HKEY_CLASSES_ROOT\Directory\Background\shell\AutoPyToExe\shell]
+
+; ───────────────────────────────────────────────────────────────
+; SUB-COMANDO 1: ABRIR
+; ───────────────────────────────────────────────────────────────
+[HKEY_CLASSES_ROOT\Directory\Background\shell\AutoPyToExe\shell\01Abrir]
+"MUIVerb"="Abrir"
 "Icon"="C:\\Script_clic_derecho\\auto-py-to-exe\\favicon.ico"
 
-[HKEY_CLASSES_ROOT\Directory\Background\shell\auto-py-to-exe\command]
+[HKEY_CLASSES_ROOT\Directory\Background\shell\AutoPyToExe\shell\01Abrir\command]
 @="cmd.exe /c start http://localhost:8080 & start /min cmd /c python -m auto_py_to_exe"
+
+; ───────────────────────────────────────────────────────────────
+; SUB-COMANDO 2: ACTUALIZAR
+; ───────────────────────────────────────────────────────────────
+[HKEY_CLASSES_ROOT\Directory\Background\shell\AutoPyToExe\shell\02Actualizar]
+"MUIVerb"="Actualizar auto-py-to-exe"
+"Icon"="C:\\Script_clic_derecho\\auto-py-to-exe\\favicon.ico"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\AutoPyToExe\shell\02Actualizar\command]
+@="cmd.exe /c python -m pip install --upgrade auto-py-to-exe pyinstaller & echo. & echo ✓ ACTUALIZACION COMPLETA & pause"
